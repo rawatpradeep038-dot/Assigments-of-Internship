@@ -2,6 +2,9 @@
 
 A modern, feature-rich React application for managing student information with favorites functionality, dark mode, and beautiful UI animations.
 
+## 🚀 Live Demo
+[View Live](https://student-management-dashboard-virid.vercel.app/)
+
 ## ✨ Features
 
 - **Dynamic Routing** - Navigate seamlessly between pages

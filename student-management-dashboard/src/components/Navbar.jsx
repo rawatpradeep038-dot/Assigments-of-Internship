@@ -8,14 +8,20 @@ import { useSelector } from 'react-redux';
  * - Accepts logoText prop
  * - Highlights active route
  * - Displays favorites count from Redux
+ * - Dark mode toggle button
  */
-function Navbar({ logoText }) {
+function Navbar({ logoText, darkMode, setDarkMode }) {
   const location = useLocation(); // Get current route
   const favoritesCount = useSelector((state) => state.favorites.favorites.length);
 
   // Helper function to check if link is active
   const isActive = (path) => {
     return location.pathname === path ? 'nav-link active' : 'nav-link';
+  };
+
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
   };
 
   return (
@@ -51,6 +57,11 @@ function Navbar({ logoText }) {
             <Link to="/about" className={isActive('/about')}>
               About
             </Link>
+          </li>
+          <li>
+            <button onClick={toggleDarkMode} className="dark-mode-toggle">
+              {darkMode ? '☀️' : '🌙'}
+            </button>
           </li>
         </ul>
       </div>

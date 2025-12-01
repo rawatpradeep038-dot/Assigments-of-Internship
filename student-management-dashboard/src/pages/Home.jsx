@@ -1,5 +1,4 @@
 // src/pages/Home.jsx
-import { useState } from 'react';
 
 /**
  * Welcome Component
@@ -16,20 +15,20 @@ function Welcome({ title, subtitle }) {
 
 /**
  * Theme Switcher Component
- * Uses useState to toggle between light and dark mode
+ * Uses props from App level state
  * Applies conditional classes based on theme
  */
-function ThemeSwitcher({ theme, setTheme }) {
+function ThemeSwitcher({ darkMode, setDarkMode }) {
   const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    setDarkMode(!darkMode);
   };
 
   return (
     <div className="theme-switcher">
       <button onClick={toggleTheme} className="theme-button">
-        {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+        {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
       </button>
-      <p>Current Theme: <strong>{theme}</strong></p>
+      <p>Current Theme: <strong>{darkMode ? 'Dark' : 'Light'}</strong></p>
     </div>
   );
 }
@@ -51,20 +50,17 @@ function MotivationalQuote() {
 
 /**
  * Home Page Component
- * Combines all sub-components and manages theme state
+ * Receives dark mode state from App level
  */
-function Home() {
-  // State for theme toggle
-  const [theme, setTheme] = useState('light');
-
+function Home({ darkMode, setDarkMode }) {
   return (
-    <div className={`home-page ${theme}-theme`}>
+    <div className="home-page">
       <Welcome 
         title="Welcome to Student Management Dashboard" 
         subtitle="Manage and organize your students efficiently"
       />
       
-      <ThemeSwitcher theme={theme} setTheme={setTheme} />
+      <ThemeSwitcher darkMode={darkMode} setDarkMode={setDarkMode} />
       
       <MotivationalQuote />
     </div>

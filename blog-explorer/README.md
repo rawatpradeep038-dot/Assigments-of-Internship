@@ -2,7 +2,9 @@
 
 A modern blog application built with Next.js 15, TypeScript, and Tailwind CSS. Features server-side rendering, dynamic routing, and real-time data fetching from JSONPlaceholder API.
 
-**Deployment Link:** `https://blog-explorer-umber.vercel.app/blogs`
+## 🚀 Live Demo
+
+**[View Live Application →](https://blog-explorer-umber.vercel.app)**
 
 ## 🚀 Features
 
